@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lagi Ngapain? — Rekomendasi Kegiatan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-screen" id="loginScreen">
+      <div class="login-card">
+        <div class="brand-mark login-mark">🎲</div>
+        <h1 class="login-title">Lagi Ngapain?</h1>
+        <p class="login-sub">
+          Masuk pakai email dulu buat mulai cari rekomendasi.
+        </p>
+        <form id="loginForm" novalidate>
+          <label class="login-label" for="loginEmail">Alamat email</label>
+          <input
+            type="email"
+            id="loginEmail"
+            class="loc-input"
+            placeholder="nama@email.com"
+            autocomplete="email"
+            required
+          />
+          <p class="login-error" id="loginError"></p>
+          <button type="submit" class="cta-btn login-btn">✉️ Masuk</button>
+        </form>
+        <p class="login-note">
+          Demo doang — nggak ada password, nggak ada email verifikasi beneran.
+          Email cuma dipakai buat nyapa kamu selama sesi ini.
+        </p>
+      </div>
+    </div>
+
+    <div class="app-screen hidden" id="appScreen">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">🎲</div>
+          Lagi Ngapain?
+        </div>
+        <div class="user-area">
+          <span class="user-badge" id="userBadge"></span>
+          <button
+            class="mode-toggle"
+            id="logoutBtn"
+            title="Keluar"
+            aria-label="Keluar"
+          >
+            🚪
+          </button>
+          <button
+            class="mode-toggle"
+            id="modeToggle"
+            title="Ganti tema"
+            aria-label="Ganti mode gelap/terang"
+          >
+            🌙
+          </button>
+        </div>
+      </header>
+
+      <div class="wrap">
+        <section class="hero">
+          <h1>Bosen, tapi bingung mau ngapain?</h1>
+          <p>
+            Ceritain mood, budget, dan mau sama siapa — kita kasih ide kegiatan
+            yang paling pas buat kamu sekarang.
+          </p>
+        </section>
+
+        <section class="wizard">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h3 class="step-title">Lagi ngerasa gimana?</h3>
+              <p class="step-sub">
+                Pilih mood yang paling deket sama kondisi kamu sekarang.
+              </p>
+              <div class="chip-row" id="moodChips"></div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h3 class="step-title">Budget kamu berapa?</h3>
+              <p class="step-sub">Geser buat nentuin batas pengeluaran.</p>
+              <div class="budget-row">
+                <div class="budget-value" id="budgetLabel">Rp50.000</div>
+                <input
+                  type="range"
+                  id="budgetSlider"
+                  min="0"
+                  max="150000"
+                  step="5000"
+                  value="50000"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h3 class="step-title">Lokasi kamu di sekitar mana?</h3>
+              <p class="step-sub">
+                Opsional — biar rekomendasinya kerasa lebih personal.
+              </p>
+              <input
+                type="text"
+                class="loc-input"
+                id="locInput"
+                placeholder="misalnya: Probolinggo"
+              />
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <h3 class="step-title">Mau pergi sama siapa?</h3>
+              <p class="step-sub">
+                Ini bakal disesuaikan sama jenis kegiatannya.
+              </p>
+              <div class="chip-row" id="companionChips"></div>
+            </div>
+          </div>
+          <div class="cta-area">
+            <button class="cta-btn" id="findBtn">🔍 Cari Rekomendasi</button>
+          </div>
+        </section>
+
+        <section class="results-section" id="resultsSection">
+          <div class="results-head">
+            <h2 id="resultsTitle">Rekomendasi buat kamu</h2>
+            <div class="tab-row">
+              <button class="tab-btn active" id="tabAll">Semua</button>
+              <button class="tab-btn" id="tabFav">
+                ❤️ Favorit (<span id="favCount">0</span>)
+              </button>
+            </div>
+          </div>
+
+          <div class="filter-bar">
+            <div class="search-box">
+              <span>🔎</span>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari kegiatan, misal: kopi, film, wisata..."
+              />
+            </div>
+            <button class="shuffle-btn" id="shuffleBtn">🔀 Acak Lagi</button>
+          </div>
+
+          <div class="cat-scroll" id="catScroll"></div>
+
+          <div class="grid" id="grid"></div>
+        </section>
+
+        <footer>
+          Dibuat buat nemenin kamu yang lagi bingung mau ngapain, khususnya
+          sekitar Probolinggo & sekitarnya 🌤️
+        </footer>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
